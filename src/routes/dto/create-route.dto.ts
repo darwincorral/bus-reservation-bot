@@ -1,18 +1,27 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString, IsNumber, Min } from 'class-validator';
+import { IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 export class CreateRouteDto {
-  @ApiProperty({ example: 'Quito' })
-  @IsString()
+  @ApiProperty({
+    example: 1,
+    description: 'ID de la ciudad de origen',
+  })
+  @IsNumber()
   @IsNotEmpty()
-  origin: string;
+  originId: number;
 
-  @ApiProperty({ example: 'Guayaquil' })
-  @IsString()
+  @ApiProperty({
+    example: 2,
+    description: 'ID de la ciudad de destino',
+  })
+  @IsNumber()
   @IsNotEmpty()
-  destination: string;
+  destinationId: number;
 
-  @ApiProperty({ example: 15.5 })
+  @ApiProperty({
+    example: 15.5,
+    description: 'Precio de la ruta en dólares',
+  })
   @IsNumber()
   @Min(0)
   price: number;

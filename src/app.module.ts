@@ -16,6 +16,8 @@ import { User } from './users/entities/user.entity';
 import { Reservation } from './reservations/entities/reservation.entity';
 import { Admin } from './admins/entities/admin.entity';
 import { Seat } from './seats/entities/seat.entity';
+import { CitiesModule } from './cities/cities.module';
+import { City } from './cities/entities/city.entity';
 
 @Module({
   imports: [
@@ -26,7 +28,7 @@ import { Seat } from './seats/entities/seat.entity';
       username: 'root',
       password: 'root',
       database: 'bus_reservation',
-      entities: [User, Route, Schedule, Reservation, Admin, Bus, Seat],
+      entities: [User, Route, Schedule, Reservation, Admin, Bus, Seat, City],
       synchronize: true, // ⚠️ usar solo en desarrollo
     }),
       UsersModule,
@@ -36,6 +38,7 @@ import { Seat } from './seats/entities/seat.entity';
       BusesModule,
       AdminsModule,
       SeatsModule,
+      CitiesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
